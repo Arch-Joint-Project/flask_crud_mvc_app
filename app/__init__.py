@@ -25,7 +25,8 @@ def create_app():
     db.init_app(app)
     ma.init_app(app)
 
-    from models import model
+    from app.models import models
+
     migrate = Migrate(app, db)
 
     # loading blueprints into application
