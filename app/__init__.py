@@ -25,15 +25,15 @@ def create_app():
     db.init_app(app)
     ma.init_app(app)
 
-    from app.models import models
+    from app.models import model
 
     migrate = Migrate(app, db)
 
     # loading blueprints into application
-    from view.views import bills_blueprint
+    from app.view.views import bills_blueprint
     app.register_blueprint(bills_blueprint)
 
-    from view.views import accounts_blueprint
+    from app.view.views import accounts_blueprint
     app.register_blueprint(accounts_blueprint)
 
     return app
